@@ -1,0 +1,31 @@
+{
+    "relative_address_baee": "E:/01_Graduate_projects/Cellular_structures/Multi-functional_design/Code_Project/ML/dataset",
+    "pth_address":"E:/01_Graduate_projects/Cellular_structures/Multi-functional_design/pth",
+    "cellular_forward":{
+        "lr":2e-1,
+        "gen_num":2000
+    },
+    "rcgan_cellular":{
+        "noise_size":64,
+        "lr_g":2e-3,
+        "lr_d":2e-3,
+        "lr_r":1e-4,
+        "epochs":300,
+        "latent_size":10,
+        "sample_num":2000,
+        "label_property" : 0.9,
+        "d_dim":1,
+        "label_d":0.5,
+        "error_threshold":0.1,
+        "generated_data_path":"E:/01_Graduate_projects/Cellular_structures/code_and_pth/Cellular_Project/experiment/generated_data_noMass/generated_files",
+        "visualization_path":"E:/01_Graduate_projects/Articles/Cellular_Inverse_design/imgs/Net_results",
+        "apppendix_path":"E:/01_Graduate_projects/Articles/Cellular_Inverse_design/imgs/appendix_imgs",
+        "gradient_optimizer":{
+            "lr":1e-2,
+            "epochs":500,
+            "weights":[0, 1],
+            "genrated_size":2000,
+            "debug_label":0.3
+        }
+    }
+}

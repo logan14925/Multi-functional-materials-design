@@ -1,0 +1,11 @@
+{
+    "max_radius":5.0,
+    "max_length":10.0,
+    "extrusion_height":5.0,
+    "seed_size":0.5,
+    "x_array":4,
+    "y_array":4,
+    "density":1.24e-09,
+    "moduli":1690.0,
+    "mu":0.25
+}
