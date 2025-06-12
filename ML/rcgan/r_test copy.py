@@ -61,7 +61,7 @@ plt.figure(figsize=(8, 6))
 plt.scatter(output[:, 0], output[:, 1], c='blue', marker='s', alpha = 0.5,  label='real data')
 
 # 构建二维网格: 0~1 每隔0.2
-grid_vals = np.random.uniform(0, 1.0, 50)
+grid_vals = np.linspace(0, 1, 50 + 1)
 recons, preds, conds = [], [], []
 start_time = time.time()
 

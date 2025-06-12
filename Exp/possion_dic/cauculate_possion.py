@@ -60,17 +60,16 @@ class Image_Possion:
         self.img = cv2.undistort(self.img, mat_inter, coff_dis, None, newcameramtx)
         
     def get_sort_filenames(self):
+        
+        folder_name = os.path.basename(self.folder_path)
+        id = folder_name.split('index_')[1] if 'index_' in folder_name else '0'
+        self.index = id
         for filename in os.listdir(self.folder_path):
             if filename.endswith('.JPG'):
                 file_path = os.path.join(self.folder_path, filename)
                 split_filename = filename.split('.')
                 split_filename = split_filename[0] +'.' + split_filename[1]
-                
-                parts = split_filename.split('_')
-                self.index = int(float(parts[0].replace('index', '')))
-                load_ = parts[-1].split('.')
-                load = float(load_[0].replace('load', ''))
-                self.load_list.append(load)
+
                 self.filepath_list.append(file_path)
 
     def mouse(self, event, x, y, flags, param):
@@ -105,6 +104,9 @@ class Image_Possion:
                 pass
             self.coordinates = []  
             self.img = self.original_img.copy()
+
+
+            
         elif event == cv2.EVENT_MBUTTONDOWN:  # 中键点击
             g_location_click = [x, y]  # 点击时，鼠标相对于窗口的坐标
             location_win = [g_location_win[0], g_location_win[1]]  # 窗口相对于图片的坐标
@@ -201,7 +203,6 @@ class Image_Possion:
             self.min_reclist = []
             for img_id in range(len(self.filepath_list)):
                 img_path = self.filepath_list[img_id]
-                load = self.load_list[img_id]
                 self.img_id = img_id
                 self.coordinates = []  # 初始化坐标列表
                 self.img_init(img_path)
@@ -211,9 +212,9 @@ class Image_Possion:
             print('当前文件夹下的图像数目与输入的图像数目不符，请重新检查数据')
         
 if __name__ == "__main__":
-    folder_path = 'E:/01_Graduate_projects/Cellular_structures/Multi-functional_design/exp/exps/index11_load10.16'
+    folder_path = 'E:/01_Graduate_projects\Cellular_structures\Multi-functional_design\exp\exps\T02\index_212'
     img_num = 6
     image_process = Image_Possion(folder_path, img_num)
     image_process.main()
     for i in range(img_num-1):
-        print('应变={}%时的泊松比：{}'.format(image_process.load_list[i] * 20, image_process.possion_list[i]))
+        print('index{}的泊松比：{}'.format(image_process.index , image_process.possion_list[i]))

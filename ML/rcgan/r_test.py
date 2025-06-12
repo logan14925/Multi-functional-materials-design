@@ -34,7 +34,7 @@ def plot_recon_and_pred(labels, recons, preds, save_path=None):
     pred_dim = pred_array.shape[1] if len(pred_array.shape) > 1 else 1
     total_dims = input_dim + pred_dim
 
-    fig, axes = plt.subplots(len(labels), total_dims, figsize=(18, 0.5 * len(labels) * total_dims))
+    fig, axes = plt.subplots(len(labels), total_dims, figsize=(18, 0.35 * len(labels) * total_dims))
 
     if len(labels) == 1:
         axes = axes.reshape(1, -1)
@@ -76,7 +76,7 @@ noisy_dim = config["rcgan_cellular"]["noise_size"]
 epochs = config["rcgan_cellular"]["epochs"]
 z_dim = config["rcgan_cellular"]["latent_size"]
 sample_num = config["rcgan_cellular"]["sample_num"]
-label_propertys = [[0.5, 0.4], [0.5, 0.1]]
+label_propertys = [[0.5, 0.4], [0.5, 0.1], [0.7, 0.3], [0.3, 0.7]]
 label_d = config["rcgan_cellular"]["label_d"]
 xlsx_base_save_path = config["rcgan_cellular"]["generated_data_path"]
 error_threshold = config["rcgan_cellular"]["error_threshold"]
