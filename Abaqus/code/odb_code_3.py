@@ -47,7 +47,6 @@ class ODB_DATA:
         session.viewports['Viewport: 1'].setValues(displayedObject=self.o)
         session.viewports['Viewport: 1'].makeCurrent()
 
-        
     def _generate_unique_random_num(self):
         while True:
             random_num = int(200000000 * random.random())  

@@ -6,6 +6,7 @@ from driverUtils import executeOnCaeStartup
 import json
 import shutil
 
+## read the configuration parameters
 config_path = 'E:/01_Graduate_projects/Cellular_structures/Multi-functional_design/Code_Project/Abaqus/FEM_config.json'
 with open(config_path, 'r') as file:
     config_params = json.load(file)
@@ -17,6 +18,7 @@ density = config_params["density"]
 moduli = config_params["moduli"]
 mu = config_params["mu"]
 
+## create a directory if it does not exist
 def mkdir(path):
     folder = os.path.exists(path)
     if not folder:  
